@@ -1,0 +1,3 @@
+
+export const SET_STREAM_URL = "SET_STREAM_URL";
+export const SET_PLAYER_STATE = "SET_PLAYER_STATE";

@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player renders correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "tinwt1",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "tinwt1",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Player>
+        <EmotionCssPropInternal
+          __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Player"
+          __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
+          css={
+            Object {
+              "name": "1vl48lr-Wrapper",
+              "styles": "display:flex;flex-direction:column;height:100vh;justify-content:center;align-items:center;border:1px solid #fff;;label:Wrapper;",
+            }
+          }
+        >
+          <div
+            className="css-1vl48lr-Wrapper"
+          >
+            <YouTube
+              className={null}
+              containerClassName=""
+              id={null}
+              onEnd={[Function]}
+              onError={[Function]}
+              onPause={[Function]}
+              onPlay={[Function]}
+              onPlaybackQualityChange={[Function]}
+              onPlaybackRateChange={[Function]}
+              onReady={[Function]}
+              onStateChange={[Function]}
+              opts={
+                Object {
+                  "height": "390",
+                  "playerVars": Object {
+                    "autoplay": 1,
+                    "start": 1629584745,
+                  },
+                  "width": "640",
+                }
+              }
+              videoId="RrTlbxFhK_I"
+            >
+              <div
+                className=""
+              >
+                <div
+                  className={null}
+                  id={null}
+                />
+              </div>
+            </YouTube>
+            <SubmitButton
+              onClick={[Function]}
+            >
+              <EmotionCssPropInternal
+                __EMOTION_LABEL_PLEASE_DO_NOT_USE__="SubmitButton"
+                __EMOTION_TYPE_PLEASE_DO_NOT_USE__="input"
+                css={
+                  Object {
+                    "name": "2q23bc-Input",
+                    "styles": "margin:0.75rem;margin-left:0;;label:Input;",
+                  }
+                }
+                onClick={[Function]}
+                type="submit"
+                value="Edit"
+              >
+                <input
+                  className="css-2q23bc-Input"
+                  onClick={[Function]}
+                  type="submit"
+                  value="Edit"
+                />
+              </EmotionCssPropInternal>
+            </SubmitButton>
+            <SubmitButton
+              to={
+                Object {
+                  "pathname": "/gif",
+                  "state": Object {},
+                }
+              }
+            >
+              <Link
+                to={
+                  Object {
+                    "pathname": "/gif",
+                    "state": Object {},
+                  }
+                }
+              >
+                <LinkAnchor
+                  href="/gif"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/gif"
+                    onClick={[Function]}
+                  >
+                    <EmotionCssPropInternal
+                      __EMOTION_LABEL_PLEASE_DO_NOT_USE__="SubmitButton"
+                      __EMOTION_TYPE_PLEASE_DO_NOT_USE__="input"
+                      css={
+                        Object {
+                          "name": "2q23bc-Input",
+                          "styles": "margin:0.75rem;margin-left:0;;label:Input;",
+                        }
+                      }
+                      type="submit"
+                      value="Next (GIF)"
+                    >
+                      <input
+                        className="css-2q23bc-Input"
+                        type="submit"
+                        value="Next (GIF)"
+                      />
+                    </EmotionCssPropInternal>
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </SubmitButton>
+          </div>
+        </EmotionCssPropInternal>
+      </Player>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

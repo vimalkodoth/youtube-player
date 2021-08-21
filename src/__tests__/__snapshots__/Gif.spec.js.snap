@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form renders correctly 1`] = `
+<EmotionCssPropInternal
+  __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Gif"
+  __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
+  css={
+    Object {
+      "name": "1vl48lr-Wrapper",
+      "styles": "display:flex;flex-direction:column;height:100vh;justify-content:center;align-items:center;border:1px solid #fff;;label:Wrapper;",
+    }
+  }
+>
+  <Image
+    src={Object {}}
+  />
+  <SubmitButton
+    onClick={[Function]}
+  >
+    Back
+  </SubmitButton>
+</EmotionCssPropInternal>
+`;
