@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
+import YouTube, { YouTubeProps, Options } from "react-youtube";
 
-function usePlaybackConfiguration(playerConfig = {}) {
-    const playerState = useSelector(state => state.playerState);
-    const [opts, setOpts] = useState(null);
+interface IPlayerState {
+    seekPosition: number,
+    currentTime: number
+}
+interface IState {
+    playerState: IPlayerState
+}
+
+const usePlaybackConfiguration = (playerConfig: any = {}) => {
+    const playerState = useSelector((state: IState) => state.playerState);
+    const [opts, setOpts] = useState<YouTubeProps | null>(null);
     useEffect(() => {
         const { seekPosition = -1, currentTime = -1 } = playerState;
         if (seekPosition && currentTime) {
@@ -23,7 +32,7 @@ function usePlaybackConfiguration(playerConfig = {}) {
         }
     }, []);
 
-    return opts;
+    return opts as YouTubeProps;
 }
 
 export default usePlaybackConfiguration;

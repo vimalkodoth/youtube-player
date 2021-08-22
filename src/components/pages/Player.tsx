@@ -1,12 +1,15 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/core";
-import YouTube from 'react-youtube';
+import YouTube, { Options, YouTubeProps } from 'react-youtube';
 import SubmitButton from "../SubmitButton";
 import usePlaybackConfiguration from "../hooks/usePlaybackConfiguration";
 import useStorePositionTime from "../hooks/useStorePositionTime";
 import { useHistory } from "react-router-dom";
+import useParseStreamUrl from "../hooks/useParseStreamUrl";
+import { setPlayerState } from "../../actionCreators";
+import { useDispatch } from 'react-redux';
 
-const defaultConfigs = {
+const defaultConfigs: Options = {
     height: '390',
     width: '640',
     playerVars: {
@@ -16,18 +19,30 @@ const defaultConfigs = {
     }
 };
 
-function Player() {
-    const playerRef = useRef(null);
+interface IProps {
+    streamUrl: string,
+    location: any
+}
+
+const Player: React.FC<IProps> = ({ streamUrl, location }: IProps) => {
+    const playerRef = useRef<YouTube | null>(null);
+    const dispatch = useDispatch();
     const opts = usePlaybackConfiguration(defaultConfigs);
-    const [onPlayerStateChange] = useStorePositionTime(playerRef);
+    const [onPlayerStateChange] = useStorePositionTime(playerRef, 2);
+    const [streamId, error]: (string | boolean)[] = useParseStreamUrl(location.state.url);
     const history = useHistory();
     const onEdit = () => {
+        dispatch(setPlayerState({
+            seekPosition: -1,
+            currentTime: -1
+        }));
         history.goBack();
     }
-    if (!opts) return <div></div>;
+    if (streamId === '' && error) return <div css={Wrapper}>An error has occured</div>;
+    if (!opts || streamId === '') return <div css={Wrapper}></div>;
     return (
         <div css={Wrapper}>
-            <YouTube videoId="RrTlbxFhK_I" opts={opts} ref={playerRef} onStateChange={onPlayerStateChange} />
+            <YouTube videoId={streamId as string} opts={opts as Options} ref={playerRef} onStateChange={onPlayerStateChange} />
             <SubmitButton onClick={onEdit}>
                 Edit
             </SubmitButton>

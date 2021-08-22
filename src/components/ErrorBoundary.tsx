@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import PropTypes, { node } from "prop-types";
 import { css } from "@emotion/core";
 
+interface IState {
+    error: string;
+    errorInfo: any;
+    hasError: boolean;
+}
+
 class ErrorBoundary extends Component {
     static propTypes = {
         children: PropTypes.oneOfType([PropTypes.arrayOf(node), node])
@@ -10,15 +16,15 @@ class ErrorBoundary extends Component {
     static defaultProps = {
         children: React.createElement("div")
     };
-    state = {
+    state: IState = {
         error: "",
-        errorInfo: "",
+        errorInfo: {},
         hasError: false
     };
-    static getDerivedStateFromError(error) {
+    static getDerivedStateFromError(error: object) {
         return { hasError: true, error };
     }
-    componentDidCatch(error, errorInfo) {
+    componentDidCatch(error: object, errorInfo: object) {
         this.setState((state) => ({ ...state, errorInfo }));
     }
     render() {

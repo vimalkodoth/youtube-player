@@ -5,7 +5,7 @@ import SubmitButton from '../SubmitButton';
 import Image from '../Image';
 import { useHistory } from "react-router-dom";
 
-function Gif() {
+const Gif: React.FC = () => {
     const history = useHistory();
     const onClickHandler = () => {
         history.goBack();

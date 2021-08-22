@@ -1,19 +1,20 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, RefObject } from "react";
 import { useDispatch } from 'react-redux';
-import { setPlayerState } from './../../actionCreators';
+import { setPlayerState } from '../../actionCreators';
 
-function useStorePositionTime(playerRef) {
+
+const useStorePositionTime = (playerRef: RefObject<any>, intervalN: number) => {
     const [firstTimePlay, setFirstTimePlay] = useState(false);
-    const interval = useRef();
+    const interval: { current: NodeJS.Timeout | null } = useRef(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (!firstTimePlay) return;
         interval.current = setInterval(() => {
             updateTime();
-        }, 3000);
+        }, intervalN * 1000);
         return () => {
-            clearInterval(interval.current);
+            clearInterval(interval.current as NodeJS.Timeout);
         };
     }, [firstTimePlay]);
 
@@ -30,10 +31,10 @@ function useStorePositionTime(playerRef) {
         setFirstTimePlay(() => {
             return false;
         });
-        clearInterval(interval.current);
+        clearInterval(interval.current as NodeJS.Timeout);
     }
 
-    const onPlayerStateChange = (event) => {
+    const onPlayerStateChange = (event: any) => {
         const playerState = event.data;
         switch (playerState) {
             case 1:
@@ -47,6 +48,7 @@ function useStorePositionTime(playerRef) {
     }
 
     const updateTime = async () => {
+        if (!playerRef.current) return;
         const currentTime = await playerRef.current.internalPlayer.getCurrentTime();
         dispatch(setPlayerState({
             seekPosition: currentTime,

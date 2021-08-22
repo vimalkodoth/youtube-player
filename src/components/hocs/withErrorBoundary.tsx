@@ -1,8 +1,8 @@
 import React from "react";
 import ErrorBoundary from "../ErrorBoundary";
 
-function withErrorBoundary(WrappedComponent) {
-    return function Component(props) {
+function withErrorBoundary(WrappedComponent: any) {
+    return function Component(props: any) {
         return (
             <ErrorBoundary>
                 <WrappedComponent {...props} />

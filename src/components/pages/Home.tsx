@@ -2,14 +2,16 @@ import React from "react";
 import { css } from "@emotion/core";
 import Form from '../Form';
 
-function Home() {
+const Home: React.FC = () => {
     return (
         <div css={Wrapper}>
             <Form to={
-                (url) => {
+                (url: any) => {
                     return {
                         pathname: `/player/${url}`,
-                        state: {}
+                        state: {
+                            url
+                        }
                     }
                 }
             } />

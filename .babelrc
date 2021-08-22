@@ -1,6 +1,9 @@
 {
   "presets": [
-    "@babel/preset-react",
+    [
+      "@babel/preset-react"
+    ],
+    "@emotion/babel-preset-css-prop",
     [
       "@babel/preset-env",
       {
@@ -9,12 +12,11 @@
         }
       }
     ],
-    [
-      "@emotion/babel-preset-css-prop",
-      {
-        "sourceMap": false
-      }
-    ]
+    "@babel/preset-typescript"
   ], //a preset is bunch of plugins for transformation
-  "plugins": ["@babel/plugin-proposal-class-properties","react-hot-loader/babel","@babel/plugin-transform-strict-mode"]
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel",
+    "@babel/plugin-transform-strict-mode"
+  ]
 }

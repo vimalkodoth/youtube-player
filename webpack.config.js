@@ -10,6 +10,9 @@ module.exports = (
     return merge(
         {
             mode,
+            resolve: {
+                extensions: ['.ts', '.tsx', '.js', '.json']
+            },
             module: {
                 rules: [
                     {
@@ -18,6 +21,11 @@ module.exports = (
                         use: {
                             loader: "babel-loader"
                         }
+                    },
+                    {
+                        test: /\.(ts|tsx)$/,
+                        exclude: /node_modules/,
+                        use: ["ts-loader"],
                     },
                     {
                         test: /\.(jpe?g|png|gif|svg)$/,

@@ -1,9 +1,14 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { css } from "@emotion/core";
 import { Link } from "react-router-dom";
 
-function SubmitButton({ to, children, onClick }) {
+interface Props {
+    onClick?: MouseEventHandler,
+    to?: object,
+    children: string
+}
 
+const SubmitButton: React.FC<Props> = ({ to, children, onClick }: Props) => {
     return (
         <React.Fragment>
             {to ?
