@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { css } from "@emotion/core";
 import store from "./store";
-import AsyncRouteWithErrorBoundary from "./components/AsyncRouteWithErrorBoundary";
+import AsyncRouteWithErrorBoundary from "./components/AsyncRouteWithErrorBoundary.tsx";
 class App extends Component {
     render() {
         return (
